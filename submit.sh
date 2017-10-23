@@ -1,13 +1,14 @@
 #!/bin/bash
 
-echo 'submetendo codigo'
+echo 'Baixando o arquivo para submissao...'
+wget http://dirlididi.com/tools/dirlididi.py
+
+echo 'Submetendo codigo'
 
 PROBLEM=$1
 TOKEN=$2
 TITLE=$3
 LANG=$4
-
-echo $PROBLEM $TOKEN $TITLE $LANG
 
 case $LANG in
 "c") FILE="$TITLE.cpp"; gcc $FILE -o $TITLE ; python dirlididi.py submit $PROBLEM $TOKEN $TITLE $FILE;;
@@ -15,3 +16,10 @@ case $LANG in
 "p") FILE="$TITLE.pl"; python dirlididi.py submit $PROBLEM $TOKEN $FILE;;
 *) echo "Invalido";;
 esac
+
+echo 'Submissao realizada!'
+echo 'Removendo o arquivo de submissao...'
+
+rm dirlididi.py
+
+echo 'Procedimento finalizado com sucesso!'

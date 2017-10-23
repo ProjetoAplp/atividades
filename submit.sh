@@ -11,8 +11,8 @@ TITLE=$3
 LANG=$4
 
 case $LANG in
-"c") FILE="$TITLE.cpp"; gcc $FILE -o $TITLE ; python dirlididi.py submit $PROBLEM $TOKEN $TITLE $FILE;;
-"h") FILE="$TITLE.hs"; ghc $FILE; python dirlididi.py submit $PROBLEM $TOKEN $TITLE $FILE;;
+"c") FILE="$TITLE.cpp"; gcc $FILE -o $TITLE ; python dirlididi.py submit $PROBLEM $TOKEN $TITLE $FILE; rm $TITLE;;
+"h") FILE="$TITLE.hs"; ghc $FILE; python dirlididi.py submit $PROBLEM $TOKEN $TITLE $FILE; rm $TITLE;;
 "p") FILE="$TITLE.pl"; python dirlididi.py submit $PROBLEM $TOKEN $FILE;;
 *) echo "Invalido";;
 esac
